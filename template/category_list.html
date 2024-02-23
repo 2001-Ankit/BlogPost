@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+<!--    <div style="display:flex; justify-content:center; align-items:center;">-->
+<!--    <ul style="margin:10%">-->
+<!--        {% for cat in category %}-->
+<!--            <li>-->
+<!--                <h2>{{ cat.name}}</h2>-->
+<!--            </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</div>-->
+<div class="row mb-4" style="margin-left:20%">
+                    <div class="col-md-6 mb-3" style="margin:10%">
+
+
+                        <div class="card text-left">
+                            <div class="card-body">
+                                <div class="dropdown dropleft text-right w-50 float-right">
+                                            <button class="btn bg-gray-100" id="dropdownMenuButton1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="nav-icon i-Gear-2"></i></button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1"><a class="dropdown-item" href="{% url 'create_category' %}">Add new category</a><a class="dropdown-item" href="#">View All Category</a></div>
+                                        </div>
+                                <h4 class="card-title mb-3">Category</h4>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <caption>List of Categories</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+<!--                                                <th scope="col">Blog Posts</th>-->
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             {% for cat in  category %}
+                                            <tr>
+                                                <th scope="row">{{forloop.counter}}</th>
+                                                <td><a href="{% url 'blogposts_by_category' cat.id %}" >{{cat.name}}</a></td>
+<!--                                                <td>-->
+<!--                                                <ul>-->
+<!--                                                    {% for post in cat.blog_posts.all %}-->
+<!--                                                    <li>{{ post.title }}</li>-->
+<!--                                                    {% endfor %}-->
+<!--                                                 </ul>-->
+                                                <td><a class="text-success mr-2" href="{% url 'update_category' cat.id %}"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a><a class="text-danger mr-2" href="{% url 'delete_category' cat.id %}"><i class="nav-icon i-Close-Window font-weight-bold"></i></a></td>
+                                            </tr>
+                                          {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</body>
+{% endblock %}

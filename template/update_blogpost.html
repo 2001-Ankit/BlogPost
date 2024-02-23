@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+
+    <div style="text-align: center;">
+        <form method="post" enctype="multipart/form-data"  style="display: inline-block; text-align: left; margin:5%">
+             <h1>Update Blog Post</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    </div>
+</body>
+{% endblock %}
+

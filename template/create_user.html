@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+
+     <div style="text-align: center;">
+        <form method="post" enctype="multipart/form-data"  style="display: inline-block; text-align: left; margin:75px">
+            <h1>Create a new user</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+          </div>
+</body>
+{% endblock %}
