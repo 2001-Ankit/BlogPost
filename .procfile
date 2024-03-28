@@ -1,2 +1,3 @@
- web: gunicorn PostgreSqTask.wsgi
+web: gunicorn blog.wsgi --log-file -
+
 
