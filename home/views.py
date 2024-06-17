@@ -190,7 +190,7 @@ def category_detail(request):
 
 
 @login_required
-@admin_or_editor
+# @admin_or_editor
 def create_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST, request.FILES)
@@ -203,14 +203,14 @@ def create_category(request):
     return render(request, 'create_category.html', {'form': form})
 
 @login_required
-@admin_required
+# @admin_required
 def delete_category(request,id):
     category = Category.objects.get(id=id)
     category.delete()
     return redirect('category_detail')
 
 @login_required
-@admin_or_editor
+# @admin_or_editor
 def update_category(request,id):
     category = Category.objects.get(id=id)
     if request.method == 'POST':
@@ -225,7 +225,7 @@ def update_category(request,id):
 
 
 @login_required
-@category_access_required
+# @category_access_required
 def blogposts_by_category(request, category_id):
 
     category = Category.objects.get(id=category_id)

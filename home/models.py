@@ -5,8 +5,6 @@ from django.db import models
 
 # Create your models here.
 
-
-
 class Users(models.Model):
     name = models.CharField(max_length=400)
     avatar = models.ImageField(upload_to='media/')
@@ -18,12 +16,16 @@ class Users(models.Model):
         if not self.slug:
             self.slug = slugify(self.email)
         super().save(*args, **kwargs)
+    def __str__(self):
+        return self.name
+
 
 class Role(models.Model):
     name = models.CharField(max_length=50, unique=True)
     permissions = models.ManyToManyField(Permission)
     def __str__(self):
         return self.name
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
