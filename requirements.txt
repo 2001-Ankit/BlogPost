@@ -5,3 +5,7 @@ sqlparse==0.4.2
 tzdata==2022.1
 whitenoise==6.5.0
 asgiref>=3.6.0,<4
+django-filter==24.2
+djangorestframework==3.14.0
+
+```
