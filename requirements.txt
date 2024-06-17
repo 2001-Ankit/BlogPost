@@ -1,7 +1,7 @@
 Django~=4.2.6
 psycopg2-binary==2.9.1
-asgiref==3.5.2
 python-dotenv==1.0.0
 sqlparse==0.4.2
 tzdata==2022.1
 whitenoise==6.5.0
+asgiref>=3.6.0,<4
